@@ -696,7 +696,9 @@ function roundObject(obj) {
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
-
+app.get('/', (_req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 app.listen(PORT, () => {
   console.log(`Double Digit running on http://localhost:${PORT}`);
 });
