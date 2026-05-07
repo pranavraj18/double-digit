@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Double Digit | Stock Decision Support</title>
+    <meta
+      name="description"
+      content="Double Digit helps you research stocks with explainable technical, fundamental, valuation and risk signals. Educational decision-support only."
+    />
+    <link rel="stylesheet" href="./style.css?v=double-digit-ux-1" />
+  </head>
+
+  <body>
+    <div class="noise"></div>
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+
+    <main class="app-shell">
+      <nav class="nav">
+        <div class="brand">
+          <span class="brand-mark">DD</span>
+          <div>
+            <strong>Double Digit</strong>
+            <small>Explainable stock research</small>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <span class="nav-pill">No guaranteed tips</span>
+          <span class="nav-pill soft">Built for decision support</span>
+        </div>
+      </nav>
+
+      <section class="hero hero-friendly">
+  <div class="hero-copy">
+    <p class="eyebrow">Stock research made simpler</p>
+
+    <h1>
+      Make sense of any stock before you act.
+    </h1>
+
+    <p class="hero-text">
+      Double Digit turns price history, fundamentals, trend, risk, and valuation
+      into a clear decision-support brief — so you can research faster without
+      getting lost in charts and ratios.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#research" class="hero-button primary">Research a stock</a>
+      <a href="#how-it-works" class="hero-button secondary">How it works</a>
+    </div>
+
+    <div class="trust-row">
+      <span>Educational only</span>
+      <span>Explainable signals</span>
+      <span>No paid AI API</span>
+      <span>No guaranteed tips</span>
+    </div>
+  </div>
+
+  <aside class="hero-card glass-card friendly-hero-card">
+    <div class="hero-card-glow"></div>
+
+    <p>What you get</p>
+
+    <strong>
+      A simple research brief, not a noisy dashboard.
+    </strong>
+
+    <span>
+      Search a stock and see the model view, risk level, entry zone,
+      invalidation level, bull/base/bear notes, and a checklist before acting.
+    </span>
+
+    <div class="hero-mini-stack">
+      <div>
+        <span>Step 1</span>
+        <b>Search any stock</b>
+      </div>
+
+      <div>
+        <span>Step 2</span>
+        <b>Review score + risks</b>
+      </div>
+
+      <div>
+        <span>Step 3</span>
+        <b>Decide what to monitor</b>
+      </div>
+    </div>
+
+    <div class="hero-stat-strip">
+      <div>
+        <span>Signal</span>
+        <strong>Buy / Hold / Sell</strong>
+      </div>
+
+      <div>
+        <span>Chart</span>
+        <strong>Dynamic price history</strong>
+      </div>
+    </div>
+
+    <p class="hero-note">
+      Built for decision support. Not investment advice.
+    </p>
+  </aside>
+</section>
+
+      <section class="feature-grid" id="how-it-works">
+        <article class="feature-card glass-card">
+          <span class="feature-icon">01</span>
+          <h3>Search naturally</h3>
+          <p>Type “Reliance”, “Tesla”, “Nvidia”, or a ticker. Autocomplete helps you pick the right listing.</p>
+        </article>
+
+        <article class="feature-card glass-card">
+          <span class="feature-icon">02</span>
+          <h3>Read the decision kit</h3>
+          <p>Get a simple take, bull case, bear case, watch triggers, support, resistance, and risk level.</p>
+        </article>
+
+        <article class="feature-card glass-card">
+          <span class="feature-icon">03</span>
+          <h3>Upload a portfolio</h3>
+          <p>Scan holdings together to see signal mix, portfolio health, concentration, and next actions.</p>
+        </article>
+      </section>
+
+      <section class="control-grid" id="research">
+        <article class="glass-card input-card search-card">
+          <div class="card-topline">
+            <span>01</span>
+            <p>Single stock</p>
+          </div>
+
+          <h2>What are you researching today?</h2>
+
+          <form id="singleForm" class="search-form">
+            <input
+              id="symbolInput"
+              type="text"
+              placeholder="Try Reliance, Tesla, Nvidia, HDFC Bank..."
+              autocomplete="off"
+              required
+            />
+            <div id="autocompleteBox" class="autocomplete-box"></div>
+            <button type="submit">Analyze</button>
+          </form>
+
+          <div class="quick-picks" aria-label="Example searches">
+            <button type="button" data-symbol="Reliance">Reliance</button>
+            <button type="button" data-symbol="Tesla">Tesla</button>
+            <button type="button" data-symbol="Nvidia">Nvidia</button>
+            <button type="button" data-symbol="HDFC Bank">HDFC Bank</button>
+            <button type="button" data-symbol="JPM">JPM</button>
+          </div>
+
+          <p class="hint">
+            Tip: Indian NSE tickers usually end with <b>.NS</b>, like <b>RELIANCE.NS</b>.
+          </p>
+        </article>
+
+        <article class="glass-card input-card upload-card">
+          <div class="card-topline">
+            <span>02</span>
+            <p>Bulk portfolio</p>
+          </div>
+
+          <h2>Scan your portfolio</h2>
+
+          <label class="upload-box" for="portfolioFile">
+            <input id="portfolioFile" type="file" accept=".csv" />
+            <span>Drop or choose CSV</span>
+            <small>Columns: symbol, quantity, avgPrice</small>
+          </label>
+
+          <button id="loadSample" class="ghost-button" type="button">
+            Load sample portfolio
+          </button>
+        </article>
+      </section>
+
+      <section class="compliance-banner">
+        <div>
+          <strong>Friendly reminder:</strong>
+          Double Digit is a research and education tool. It does not promise returns,
+          place trades, or replace a registered adviser.
+        </div>
+      </section>
+
+      <section id="status" class="status hidden"></section>
+
+      <section class="watchlist-panel glass-card" id="watchlistPanel" hidden>
+        <div class="watchlist-head">
+          <div>
+            <p class="eyebrow">Saved locally</p>
+            <h2>Your watchlist</h2>
+          </div>
+          <button id="clearWatchlist" class="tiny-button" type="button">Clear</button>
+        </div>
+        <div id="watchlistItems" class="watchlist-items"></div>
+      </section>
+
+      <section class="summary-strip" id="portfolioSummary" hidden>
+        <div>
+          <span>Total current value</span>
+          <strong id="totalValue">—</strong>
+        </div>
+        <div>
+          <span>Total P&L</span>
+          <strong id="totalPnl">—</strong>
+        </div>
+        <div>
+          <span>Signal mix</span>
+          <strong id="signalMix">—</strong>
+        </div>
+      </section>
+
+      <section id="results" class="results-grid"></section>
+
+      <footer class="footer-note">
+        Double Digit provides educational, rule-based decision support only. It is not investment advice,
+        a research analyst service, or a promise of future performance. Verify data and consult a registered adviser before investing.
+      </footer>
+    </main>
+
+    <template id="loadingTemplate">
+      <article class="glass-card result-card skeleton-card">
+        <div class="skeleton w-40"></div>
+        <div class="skeleton w-70"></div>
+        <div class="skeleton w-100"></div>
+        <div class="skeleton w-90"></div>
+      </article>
+    </template>
+
+    <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+    <script type="module" src="./app.js?v=double-digit-ux-1"></script>
+  </body>
+</html>
